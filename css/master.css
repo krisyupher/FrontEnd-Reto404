@@ -426,16 +426,6 @@ body {
     padding: 40px;
     background: rgba(10, 10, 21, 0.5);
     border-top: 1px solid rgba(255, 255, 255, 0.1);
-    color: var(--text-secondary);
-    font-size: 14px;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .header {
-        padding: 0 20px;
-        height: 60px;
-    }
 
     .header__img h3 {
         font-size: 20px;
@@ -464,6 +454,32 @@ body {
 
     .carousel__title {
         font-size: 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    .header {
+        padding: 0 15px;
+    }
+
+    .header__img h3 {
+        display: none;
+    }
+
+    .header__menu--profile h3 {
+        display: none;
+    }
+
+    .header__menu {
+        gap: 15px;
+    }
+
+    .header__menu ul {
+        gap: 15px;
+    }
+
+    .header__menu ul li a {
+        font-size: 14px;
     }
 }
 
