@@ -1,0 +1,124 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: #ffffff;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #000000;
+    padding: 20px;
+}
+
+.container {
+    text-align: center;
+    max-width: 600px;
+}
+
+.error-code {
+    font-size: 200px;
+    font-weight: 300;
+    line-height: 1;
+    margin-bottom: 30px;
+    letter-spacing: -10px;
+    position: relative;
+}
+
+.error-code::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 2px;
+    background: #000000;
+}
+
+h1 {
+    font-size: 32px;
+    margin-bottom: 16px;
+    font-weight: 600;
+    letter-spacing: -0.5px;
+}
+
+p {
+    font-size: 18px;
+    margin-bottom: 50px;
+    color: #666666;
+    font-weight: 300;
+    line-height: 1.6;
+}
+
+.btn-home {
+    display: inline-block;
+    padding: 16px 48px;
+    background: #000000;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 0;
+    font-weight: 400;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border: 2px solid #000000;
+}
+
+.btn-home:hover {
+    background: #ffffff;
+    color: #000000;
+}
+
+.minimal-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 40px;
+    border: 3px solid #000000;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(1.05);
+        opacity: 0.8;
+    }
+}
+
+@media (max-width: 768px) {
+    .error-code {
+        font-size: 120px;
+        letter-spacing: -5px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    p {
+        font-size: 16px;
+    }
+
+    .minimal-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 30px;
+    }
+}

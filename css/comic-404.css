@@ -1,0 +1,231 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Bangers', cursive;
+    background: #ffeb3b;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #000;
+    overflow: hidden;
+    position: relative;
+}
+
+.comic-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image:
+        repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0, 0, 0, 0.03) 2px, rgba(0, 0, 0, 0.03) 4px),
+        repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(0, 0, 0, 0.03) 2px, rgba(0, 0, 0, 0.03) 4px);
+    background-size: 20px 20px;
+}
+
+.container {
+    text-align: center;
+    z-index: 10;
+    position: relative;
+    padding: 20px;
+}
+
+.speech-bubble {
+    position: relative;
+    background: white;
+    border: 8px solid #000;
+    border-radius: 50%;
+    width: 350px;
+    height: 350px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 60px;
+    box-shadow: 12px 12px 0 rgba(0, 0, 0, 0.3);
+    animation: pop 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+@keyframes pop {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.bubble-tail {
+    position: absolute;
+    bottom: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 30px solid transparent;
+    border-right: 30px solid transparent;
+    border-top: 50px solid #000;
+}
+
+.bubble-tail::before {
+    content: '';
+    position: absolute;
+    top: -58px;
+    left: -24px;
+    width: 0;
+    height: 0;
+    border-left: 24px solid transparent;
+    border-right: 24px solid transparent;
+    border-top: 42px solid white;
+}
+
+.error-code {
+    font-size: 120px;
+    color: #ff1744;
+    text-shadow:
+        6px 6px 0 #000,
+        -2px -2px 0 #ffeb3b;
+    transform: rotate(-5deg);
+    animation: shake 0.5s infinite;
+}
+
+@keyframes shake {
+
+    0%,
+    100% {
+        transform: rotate(-5deg) translateX(0);
+    }
+
+    25% {
+        transform: rotate(-7deg) translateX(-5px);
+    }
+
+    75% {
+        transform: rotate(-3deg) translateX(5px);
+    }
+}
+
+.comic-text h1 {
+    font-size: 80px;
+    color: #ff1744;
+    text-shadow:
+        5px 5px 0 #000,
+        -2px -2px 0 #ffeb3b;
+    margin-bottom: 10px;
+    animation: bounce 1s infinite;
+}
+
+@keyframes bounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+.subtitle {
+    font-size: 36px;
+    color: #000;
+    text-shadow: 3px 3px 0 #ff1744;
+    margin-bottom: 40px;
+}
+
+.action-burst {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.action-burst span {
+    font-size: 32px;
+    color: #fff;
+    background: #ff1744;
+    padding: 15px 25px;
+    border: 5px solid #000;
+    border-radius: 50%;
+    box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.3);
+    transform: rotate(-10deg);
+    animation: burst 2s infinite;
+}
+
+.action-burst span:nth-child(2) {
+    background: #2196f3;
+    transform: rotate(5deg);
+    animation-delay: 0.3s;
+}
+
+.action-burst span:nth-child(3) {
+    background: #4caf50;
+    transform: rotate(-15deg);
+    animation-delay: 0.6s;
+}
+
+@keyframes burst {
+
+    0%,
+    100% {
+        transform: scale(1) rotate(-10deg);
+    }
+
+    50% {
+        transform: scale(1.1) rotate(-5deg);
+    }
+}
+
+.btn-home {
+    display: inline-block;
+    padding: 20px 50px;
+    background: #ff1744;
+    color: white;
+    text-decoration: none;
+    font-size: 28px;
+    border: 6px solid #000;
+    box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.3);
+    transition: all 0.2s ease;
+    transform: rotate(-2deg);
+}
+
+.btn-home:hover {
+    transform: rotate(0deg) translateY(-5px);
+    box-shadow: 12px 12px 0 rgba(0, 0, 0, 0.4);
+}
+
+@media (max-width: 768px) {
+    .speech-bubble {
+        width: 250px;
+        height: 250px;
+    }
+
+    .error-code {
+        font-size: 80px;
+    }
+
+    .comic-text h1 {
+        font-size: 50px;
+    }
+
+    .subtitle {
+        font-size: 24px;
+    }
+
+    .action-burst span {
+        font-size: 20px;
+        padding: 10px 15px;
+    }
+
+    .btn-home {
+        font-size: 20px;
+        padding: 15px 35px;
+    }
+}

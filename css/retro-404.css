@@ -1,0 +1,243 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Press Start 2P', cursive;
+    background: #1a1a2e;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #00ff41;
+    overflow: hidden;
+    position: relative;
+}
+
+.crt-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(0deg,
+            rgba(0, 0, 0, 0.15),
+            rgba(0, 0, 0, 0.15) 1px,
+            transparent 1px,
+            transparent 2px);
+    pointer-events: none;
+    z-index: 1000;
+}
+
+.scanline {
+    position: absolute;
+    width: 100%;
+    height: 100px;
+    background: linear-gradient(to bottom,
+            transparent 0%,
+            rgba(255, 255, 255, 0.05) 50%,
+            transparent 100%);
+    animation: scan 8s linear infinite;
+    pointer-events: none;
+    z-index: 999;
+}
+
+@keyframes scan {
+    0% {
+        top: -100px;
+    }
+
+    100% {
+        top: 100%;
+    }
+}
+
+.container {
+    text-align: center;
+    z-index: 10;
+    position: relative;
+    padding: 20px;
+}
+
+.arcade-border {
+    border: 8px solid #ff6b35;
+    border-radius: 20px;
+    padding: 60px 40px;
+    background: rgba(26, 26, 46, 0.9);
+    box-shadow:
+        0 0 20px rgba(255, 107, 53, 0.5),
+        inset 0 0 20px rgba(0, 255, 65, 0.1);
+    position: relative;
+}
+
+.arcade-border::before,
+.arcade-border::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border: 4px solid #00ff41;
+    border-radius: 50%;
+}
+
+.arcade-border::before {
+    top: 20px;
+    left: 20px;
+    box-shadow: 0 0 10px #00ff41;
+}
+
+.arcade-border::after {
+    top: 20px;
+    right: 20px;
+    box-shadow: 0 0 10px #00ff41;
+}
+
+.pixel-art {
+    margin-bottom: 30px;
+    font-size: 24px;
+    color: #ff6b35;
+}
+
+.pixel-row {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    margin: 5px 0;
+}
+
+.pixel-row span {
+    display: inline-block;
+    width: 30px;
+    text-align: center;
+}
+
+.pixel-row span.empty {
+    opacity: 0;
+}
+
+.error-code {
+    font-size: 72px;
+    margin-bottom: 20px;
+    color: #ff6b35;
+    text-shadow:
+        4px 4px 0 #00ff41,
+        -2px -2px 0 #f7b731;
+    animation: glitchRetro 3s infinite;
+}
+
+@keyframes glitchRetro {
+
+    0%,
+    90%,
+    100% {
+        transform: translate(0);
+    }
+
+    92% {
+        transform: translate(-2px, 2px);
+    }
+
+    94% {
+        transform: translate(2px, -2px);
+    }
+
+    96% {
+        transform: translate(-2px, -2px);
+    }
+
+    98% {
+        transform: translate(2px, 2px);
+    }
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+    color: #ff6b35;
+}
+
+p {
+    font-size: 10px;
+    margin-bottom: 30px;
+    line-height: 1.8;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    letter-spacing: 1px;
+}
+
+.score {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    font-size: 10px;
+    padding: 0 20px;
+}
+
+.blink {
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+
+    0%,
+    49% {
+        opacity: 1;
+    }
+
+    50%,
+    100% {
+        opacity: 0;
+    }
+}
+
+.btn-home {
+    display: inline-block;
+    padding: 15px 40px;
+    background: #ff6b35;
+    color: #1a1a2e;
+    text-decoration: none;
+    font-size: 12px;
+    transition: all 0.3s ease;
+    border: 4px solid #f7b731;
+    box-shadow:
+        0 0 20px rgba(255, 107, 53, 0.5),
+        inset 0 0 10px rgba(247, 183, 49, 0.3);
+    letter-spacing: 2px;
+}
+
+.btn-home:hover {
+    background: #f7b731;
+    color: #1a1a2e;
+    transform: scale(1.05);
+    box-shadow:
+        0 0 30px rgba(247, 183, 49, 0.8),
+        inset 0 0 20px rgba(255, 107, 53, 0.5);
+}
+
+@media (max-width: 768px) {
+    .arcade-border {
+        padding: 40px 20px;
+    }
+
+    .error-code {
+        font-size: 48px;
+    }
+
+    h1 {
+        font-size: 16px;
+    }
+
+    p {
+        font-size: 8px;
+    }
+
+    .pixel-art {
+        font-size: 16px;
+    }
+
+    .pixel-row span {
+        width: 20px;
+    }
+}

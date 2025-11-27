@@ -1,0 +1,202 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    overflow: hidden;
+    perspective: 1000px;
+}
+
+.container {
+    text-align: center;
+    z-index: 10;
+    position: relative;
+}
+
+.isometric-scene {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    margin-bottom: 80px;
+    transform-style: preserve-3d;
+    animation: sceneFloat 6s ease-in-out infinite;
+}
+
+@keyframes sceneFloat {
+
+    0%,
+    100% {
+        transform: translateY(0) rotateY(0deg);
+    }
+
+    50% {
+        transform: translateY(-20px) rotateY(10deg);
+    }
+}
+
+.cube {
+    width: 120px;
+    height: 120px;
+    position: relative;
+    transform-style: preserve-3d;
+    animation: rotateCube 8s infinite linear;
+}
+
+.cube-4 {
+    animation-delay: 0s;
+}
+
+.cube-0-1 {
+    animation-delay: -2.6s;
+}
+
+.cube-4-2 {
+    animation-delay: -5.3s;
+}
+
+@keyframes rotateCube {
+    0% {
+        transform: rotateX(0deg) rotateY(0deg);
+    }
+
+    100% {
+        transform: rotateX(360deg) rotateY(360deg);
+    }
+}
+
+.face {
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 72px;
+    font-weight: 900;
+    color: white;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+}
+
+.front {
+    transform: rotateY(0deg) translateZ(60px);
+    background: linear-gradient(135deg, rgba(255, 107, 107, 0.3), rgba(255, 159, 64, 0.3));
+}
+
+.back {
+    transform: rotateY(180deg) translateZ(60px);
+    background: linear-gradient(135deg, rgba(78, 205, 196, 0.3), rgba(85, 230, 193, 0.3));
+}
+
+.right {
+    transform: rotateY(90deg) translateZ(60px);
+    background: linear-gradient(135deg, rgba(162, 155, 254, 0.3), rgba(123, 47, 247, 0.3));
+}
+
+.left {
+    transform: rotateY(-90deg) translateZ(60px);
+    background: linear-gradient(135deg, rgba(255, 107, 107, 0.3), rgba(255, 64, 129, 0.3));
+}
+
+.top {
+    transform: rotateX(90deg) translateZ(60px);
+    background: linear-gradient(135deg, rgba(255, 195, 113, 0.3), rgba(255, 107, 107, 0.3));
+}
+
+.bottom {
+    transform: rotateX(-90deg) translateZ(60px);
+    background: linear-gradient(135deg, rgba(52, 231, 228, 0.3), rgba(78, 205, 196, 0.3));
+}
+
+h1 {
+    font-size: 48px;
+    margin-bottom: 16px;
+    font-weight: 700;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+p {
+    font-size: 20px;
+    margin-bottom: 40px;
+    opacity: 0.9;
+    font-weight: 400;
+}
+
+.btn-home {
+    display: inline-block;
+    padding: 16px 48px;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+.btn-home:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 768px) {
+    .cube {
+        width: 80px;
+        height: 80px;
+    }
+
+    .face {
+        width: 80px;
+        height: 80px;
+        font-size: 48px;
+    }
+
+    .front,
+    .back {
+        transform: rotateY(0deg) translateZ(40px);
+    }
+
+    .back {
+        transform: rotateY(180deg) translateZ(40px);
+    }
+
+    .right {
+        transform: rotateY(90deg) translateZ(40px);
+    }
+
+    .left {
+        transform: rotateY(-90deg) translateZ(40px);
+    }
+
+    .top {
+        transform: rotateX(90deg) translateZ(40px);
+    }
+
+    .bottom {
+        transform: rotateX(-90deg) translateZ(40px);
+    }
+
+    h1 {
+        font-size: 32px;
+    }
+
+    p {
+        font-size: 16px;
+    }
+}
